@@ -7,7 +7,6 @@
 void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char *ip, char *append){
     unsigned short append_len = strlen(append) + 1;
     // if append len is 1 is was a null string '\0', don't append
-    printf("Append len: %d\n Buf size: %d Buf pos: %d Buf space: %d", append_len, *buf_size, *buf_pos, (*buf_size) - (*buf_pos));
     if(append_len > 1){
 
         if( ((*buf_size) - (*buf_pos)) > append_len ){
@@ -27,7 +26,6 @@ void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char *
             *buf_size += 250;
             ip = (char*) realloc(ip, (*buf_size) * sizeof(char));
         }
-
     }
 }
 

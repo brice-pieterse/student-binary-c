@@ -60,19 +60,14 @@ void replace_entry(char* exclude, char* replacement, FILE** fp, char* file_name)
                 append_char_ptr(&buf_size, &buf_pos, ip, temp_bfr);
             } 
             else {
-                printf("\nDeleting: %s\n", temp_bfr);
-                printf("\nReplacing with: %s\n", replacement);
+                // printf("\nDeleting: %s\n", temp_bfr);
+                // printf("\nReplacing with: %s\n", replacement);
                 append_char_ptr(&buf_size, &buf_pos, ip, replacement);
             }
 
             index = 0;
         }
         else index++;
-    }
-
-
-    for(int j = 0; j < buf_size; j++){
-        printf("%c", ip[j]);
     }
 
     // write the buffer contents to the file
@@ -85,6 +80,8 @@ void replace_entry(char* exclude, char* replacement, FILE** fp, char* file_name)
     else {
         fwrite(ip, sizeof(char), buf_pos, *fp);
     }
+
+    printf("Operation complete.\n");
 
     free(ip);
 }

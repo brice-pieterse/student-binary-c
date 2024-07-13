@@ -61,7 +61,7 @@ void write_binary(){
 
         printf("%s\n", file_name);
 
-        fp = fopen(file_name, "a");
+        fp = fopen(file_name, "w");
 
         if (fp == NULL) {
             perror("Error opening file");
@@ -247,7 +247,7 @@ int main(int argc, char *argv[]){
 
         input_validator("Enter Menu Option (1-6): ", selection, 1, "\nMenu options are 1-6. Please try again: ", menu_validator);
 
-        printf("\nOption selected was: %c\n", selection[0]);
+        printf("Option selected was: %c\n", selection[0]);
 
         // exec selection
         switch(selection[0]){
@@ -268,6 +268,7 @@ int main(int argc, char *argv[]){
                 seek_record();
                 break;
             case '6':
+                printf("Goodbye!\n\n");
                 running = 0;
             break;
         }
