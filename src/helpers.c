@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 // append a character string to a character buffer
-void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char *ip, char *append){
+void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char** ip, char *append){
     unsigned short append_len = strlen(append) + 1;
     // if append len is 1 is was a null string '\0', don't append
     if(append_len > 1){
@@ -15,7 +15,7 @@ void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char *
             unsigned short cpy_index = 0;
             while(cpy_index < append_len){
                 // write to ip
-                ip[*buf_pos] = append[cpy_index];
+                (*ip)[*buf_pos] = append[cpy_index];
                 (*buf_pos)++;
                 cpy_index++;
             }
@@ -24,7 +24,8 @@ void append_char_ptr(unsigned short * buf_size, unsigned short * buf_pos, char *
         else {
             // else realloc ip before writing to it
             *buf_size += 250;
-            ip = (char*) realloc(ip, (*buf_size) * sizeof(char));
+            char* new_ip = (char*) realloc(*ip, (*buf_size) * sizeof(char));
+            *ip = new_ip;
         }
     }
 }

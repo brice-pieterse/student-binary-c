@@ -57,12 +57,12 @@ void replace_entry(char* exclude, char* replacement, FILE** fp, char* file_name)
 
             // check that it is not the entry to be excluded
             if(!(strncmp(temp_bfr, exclude, strlen(temp_bfr)) == 0)){
-                append_char_ptr(&buf_size, &buf_pos, ip, temp_bfr);
+                append_char_ptr(&buf_size, &buf_pos, &ip, temp_bfr);
             } 
             else {
                 // printf("\nDeleting: %s\n", temp_bfr);
                 // printf("\nReplacing with: %s\n", replacement);
-                append_char_ptr(&buf_size, &buf_pos, ip, replacement);
+                append_char_ptr(&buf_size, &buf_pos, &ip, replacement);
             }
 
             index = 0;
