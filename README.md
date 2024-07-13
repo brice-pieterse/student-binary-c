@@ -1,4 +1,4 @@
-### Create/Manage Records In a Binary File (C)
+## Create/Manage Records In a Binary File (C)
 
 This project serves as an introduction to several elementary concepts in C, inluding pointers, input/output, and file struction for a non trivial program.
 
